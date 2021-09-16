@@ -76,5 +76,4 @@ class FirebaseAuthRepository implements AuthRepository {
     // TODO: implement signInWithTwitter
     throw UnimplementedError();
   }
-
 }

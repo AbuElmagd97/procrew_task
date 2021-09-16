@@ -216,7 +216,6 @@ class _LoginScreenState extends State<LoginScreen> {
     }
   }
 
-
   Widget _buildLoginButtonBloc() {
     return BlocListener<AuthCubit, AuthState>(
       listenWhen: (previous, current) {
@@ -248,7 +247,6 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 
-
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -256,81 +254,81 @@ class _LoginScreenState extends State<LoginScreen> {
         backgroundColor: Colors.white,
         body: SingleChildScrollView(
           child: Form(
-                key: _formKey,
-                child: Container(
-                  margin: EdgeInsets.symmetric(horizontal: 32, vertical: 88),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+            key: _formKey,
+            child: Container(
+              margin: EdgeInsets.symmetric(horizontal: 32, vertical: 88),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  _buildIntro(),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  _buildEmailTextField(),
+                  SizedBox(
+                    height: 30,
+                  ),
+                  _buildPasswordTextField(),
+                  SizedBox(
+                    height: 30,
+                  ),
+                  _buildLoginButton(),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Center(
+                    child: Text(
+                      "Or, login with...",
+                      style: TextStyle(
+                        color: MyColors.myGrey,
+                        fontSize: 14,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  _buildSocialButtons(),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      _buildIntro(),
-                      SizedBox(
-                        height: 20,
+                      Text(
+                        "New to ProCrew? ",
+                        style: TextStyle(
+                          color: MyColors.myGrey,
+                          fontSize: 14,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
-                      _buildEmailTextField(),
                       SizedBox(
-                        height: 30,
+                        width: 10,
                       ),
-                      _buildPasswordTextField(),
-                      SizedBox(
-                        height: 30,
-                      ),
-                      _buildLoginButton(),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      Center(
+                      TextButton(
                         child: Text(
-                          "Or, login with...",
+                          "Register",
                           style: TextStyle(
-                            color: MyColors.myGrey,
+                            color: MyColors.myBlue,
                             fontSize: 14,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
+                        onPressed: () {
+                          Navigator.of(context).pushNamed(signupScreen);
+                        },
                       ),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      _buildSocialButtons(),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            "New to ProCrew? ",
-                            style: TextStyle(
-                              color: MyColors.myGrey,
-                              fontSize: 14,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          SizedBox(
-                            width: 10,
-                          ),
-                          TextButton(
-                            child: Text(
-                              "Register",
-                              style: TextStyle(
-                                color: MyColors.myBlue,
-                                fontSize: 14,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            onPressed: () {
-                              Navigator.of(context).pushNamed(signupScreen);
-                            },
-                          ),
-                        ],
-                      ),
-                      _buildLoginButtonBloc(),
                     ],
                   ),
-                ),
+                  _buildLoginButtonBloc(),
+                ],
               ),
+            ),
           ),
         ),
+      ),
     );
   }
 }
