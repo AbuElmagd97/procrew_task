@@ -148,7 +148,9 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
             ),
           ),
-          onPressed: () {},
+          onPressed: () {
+            _loginWithFacebook(context);
+          },
         ),
         CustomElevatedButton(
           width: 80,
@@ -165,7 +167,9 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
             ),
           ),
-          onPressed: () {},
+          onPressed: () {
+            _loginWithGoogle(context);
+          },
         ),
         CustomElevatedButton(
           width: 80,
@@ -215,6 +219,17 @@ class _LoginScreenState extends State<LoginScreen> {
           _emailController.text, _passwordController.text);
     }
   }
+
+  Future<void> _loginWithGoogle(BuildContext context) async {
+    BlocProvider.of<AuthCubit>(context).signInWithGoogle();
+  }
+
+  Future<void> _loginWithFacebook(BuildContext context) async {
+    BlocProvider.of<AuthCubit>(context).signInWithFacebook();
+  }
+
+
+
 
   Widget _buildLoginButtonBloc() {
     return BlocListener<AuthCubit, AuthState>(

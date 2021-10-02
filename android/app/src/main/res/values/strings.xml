@@ -1,0 +1,9 @@
+<resources>
+
+<string name="app_name">Pro Crew App</string>
+<string name="facebook_app_id">572508547211896</string>
+<string name="facebook_client_token">c6b7f045135c9654c38e7f9bfb851371</string>
+<string name="fb_login_protocol_scheme">fb572508547211896</string>
+
+    
+</resources>

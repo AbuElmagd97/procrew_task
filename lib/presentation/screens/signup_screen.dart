@@ -23,6 +23,14 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
   bool _passwordVisible = true;
 
+  Future<void> _loginWithGoogle(BuildContext context) async {
+    BlocProvider.of<AuthCubit>(context).signInWithGoogle();
+  }
+
+  Future<void> _loginWithFacebook(BuildContext context) async {
+    BlocProvider.of<AuthCubit>(context).signInWithFacebook();
+  }
+
   Widget _buildIntro() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -148,7 +156,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
               ),
             ),
           ),
-          onPressed: () {},
+          onPressed: () {
+            _loginWithFacebook(context);
+          },
         ),
         CustomElevatedButton(
           width: 80,
@@ -165,7 +175,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
               ),
             ),
           ),
-          onPressed: () {},
+          onPressed: () {
+            _loginWithGoogle(context);
+          },
         ),
         CustomElevatedButton(
           width: 80,
